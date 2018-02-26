@@ -23,6 +23,21 @@ class PagesController < ApplicationController
     else
       render :new
     end
+
+    #GET /pages/:id/edit
+    def edit
+      @page = Page.find(params[:id])
+    end
+
+    def update
+      @page = Page.find(params[:id])
+
+      if @page.update(page_params)
+        redirect_to page_path(@page)
+      else
+        render :edit
+      end
+    end
   end
 
   private
