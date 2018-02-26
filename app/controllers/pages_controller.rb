@@ -1,17 +1,15 @@
 class PagesController < ApplicationController
-#GET /pages
+  #GET /pages
   def index
     @pages = Page.all
   end
 
-#Get /pages/:id
-
+  #GET /pages/:id
   def show
-    Page.find(params[:id])
+    @page = Page.find(params[:id])
   end
 
-#GET /pages/new
-
+  #GET /pages/new
   def new
     @page = Page.new
   end
